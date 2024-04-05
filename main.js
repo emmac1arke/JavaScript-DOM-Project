@@ -7,76 +7,94 @@ toggle.addEventListener('click', () => {
 })
 
 
-
-
-
-
-
-
-
-
-
+//Tag Templates for Product Cards//
 
 
 const products = [
-    {name: 'Jug',
+    {ProductName: 'Jug',
     price: 14.99,
     seller: 'By the Sea',
     image: '<https://www.houseofdisaster.com/cdn/shop/products/SEA-JUG-3_99_1000x.jpg?v=1663764035>'},
 
-    {name: 'Hut Jar with Gift Box',
+    {ProductName: 'Hut Jar with Gift Box',
     price: 12.50,
     seller: 'By the Sea',
     image: '<https://www.houseofdisaster.com/cdn/shop/products/SEAJARHUT_1_1000x.jpg?v=1605543116>'},
     
-    {name: 'Dish with Gift Box',
+    {ProductName: 'Dish with Gift Box',
     price: 13.75,
     seller: 'By the Sea',
     image: '<https://www.houseofdisaster.com/cdn/shop/products/SEA-DIS-WH-2_1000x.jpg?v=1663760936>'},
     
-    {name: 'Tropical Wallet',
+    {ProductName: 'Tropical Wallet',
     price: 30.00,
     seller: 'Frida Kahlo',
     image: '<https://www.houseofdisaster.com/cdn/shop/products/Fri-Wal-Tro-1_1000x.jpg?v=1634026219>'},
     
-    {name: 'Flask',
+    {ProductName: 'Flask',
     price: 19.99,
     seller: 'Frida Kahlo',
     image: '<https://www.houseofdisaster.com/cdn/shop/products/Fri-fla-1_1000x.jpg?v=1635345474>'},
     
-    {name: 'Socks',
+    {ProductName: 'Socks',
     price: 8.75,
     seller: 'Frida Kahlo',
     image: '<https://www.houseofdisaster.com/cdn/shop/products/Fri-Socks-1_1000x.jpg?v=1643296918>'},
     
-    {name: 'Cream Cup',
+    {ProductName: 'Cream Cup',
     price: 19.99,
     seller: 'Forage',
     image: '<https://www.houseofdisaster.com/cdn/shop/files/FORCUPCR-1_1000x.jpg?v=1693408534>'},
     
-    {name: 'Tea Light Holder',
+    {ProductName: 'Tea Light Holder',
     price: 15.99,
     seller: 'Forage',
     image: '<https://www.houseofdisaster.com/cdn/shop/files/FORCANMU-1_1000x.jpg?v=1693408615>'},
     
-    {name: 'Black Velvet Cushion',
+    {ProductName: 'Black Velvet Cushion',
     price: 42.00,
     seller: 'Forage',
     image: '<https://www.houseofdisaster.com/cdn/shop/files/FORCUSBK-1_1000x.jpg?v=1693408395>'},
     
-    {name: 'Hot Water Bottle',
+    {ProductName: 'Hot Water Bottle',
     price: 27.50,
     seller: 'Secret Garden',
     image: '<https://www.houseofdisaster.com/cdn/shop/products/SEC-HWB-FX-1_1000x.jpg?v=1659805287>'},
     
-    {name: 'Bird Planter',
+    {ProductName: 'Bird Planter',
     price: 29.99,
     seller: 'Secret Garden',
     image: '<https://www.houseofdisaster.com/cdn/shop/products/SEC-PLA-BD-1_1000x.jpg?v=1658749476>'},
     
-    {name: 'Swan Notebook',
+    {ProductName: 'Swan Notebook',
     price: 4.99,
     seller: 'Secret Garden',
     image: '<https://www.houseofdisaster.com/cdn/shop/products/SEC-NOT-SWA-1_1000x.jpg?v=1646650883>'},
 
 ]
+
+const ProductTemplate = (image, ProductName, seller, price) => {
+    return`<div class="product-card">
+<div class="image">
+    <${image}>
+</div>
+<h2>${ProductName}</h2>
+<h3>${seller}</h3>
+<h4>${price}</h4>   
+</div>`
+};
+
+const ProductCards = document.getElementsByClassName('product-card');
+const populateCards = () => {
+    for(let i= 0; i < products.length; i++) {
+        const currentProduct = products[i];
+        ProductCards.innerHTML += ProductTemplate(
+            ProductCards.image,
+            ProductCards.ProductName,
+            ProductCards.seller,
+            ProductCards.price
+        );
+    }
+};
+
+populateCards();
