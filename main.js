@@ -7,7 +7,17 @@ toggle.addEventListener('click', () => {
 })
 
 
+
 //Tag Templates for Product Cards//
+
+const productCard = `<div class="product-card">
+                <div class="image">
+                    <${image}>
+                </div>
+                <h2>${ProductName}</h2>
+                <h3>${seller}</h3>
+                <h4>${price}</h4>   
+            </div>`
 
 
 const products = [
@@ -73,7 +83,7 @@ const products = [
 
 ]
 
-const ProductTemplate = (image, ProductName, seller, price) => {
+const getProductCards = (image, ProductName, seller, price) => {
     return`<div class="product-card">
 <div class="image">
     <${image}>
@@ -84,17 +94,20 @@ const ProductTemplate = (image, ProductName, seller, price) => {
 </div>`
 };
 
-const ProductCards = document.getElementsByClassName('product-card');
-const populateCards = () => {
-    for(let i= 0; i < products.length; i++) {
+const productsContainer = document.getElementById("productsList")
+const populateProducts =() => {
+    for (let i = 0; i < products.length; i++) {
         const currentProduct = products[i];
-        ProductCards.innerHTML += ProductTemplate(
-            ProductCards.image,
-            ProductCards.ProductName,
-            ProductCards.seller,
-            ProductCards.price
+        productsContainer.innerHTML += getProductCards(
+            currentProduct.image,
+            currentProduct.ProductName,
+            currentProduct.seller,
+            currentProduct.price,
         );
     }
 };
 
-populateCards();
+populateProducts();
+
+
+
