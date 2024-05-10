@@ -115,12 +115,14 @@ main {
     margin: 20px;
 }
 
-.products {
+.products-section {
     margin-top: 40px;
+    text-align: center;
+}
+
+#productsList {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 40px;
-    text-align: center;
 }
 
 .product-card {
@@ -128,7 +130,7 @@ main {
     background-color: #B2FFFF;
 }
 
-.products .product-card:hover {
+.products-section img:hover{
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
