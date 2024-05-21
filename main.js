@@ -70,6 +70,8 @@ const products = [
 
 ]
 
+let maxPrice = 1000;
+let brand = 'All'
 
 //Tag Templates for Product Cards//
 const getProductCards = (image, ProductName, seller, price) => {
@@ -84,9 +86,10 @@ const getProductCards = (image, ProductName, seller, price) => {
 };
 
 const productsContainer = document.getElementById("productsList")
-const populateProducts =() => {
-    for (let i = 0; i < products.length; i++) {
-        const currentProduct = products[i];
+const populateProducts =(productsarray) => {
+    productsContainer.innerHTML =""
+    for (let i = 0; i < productsarray.length; i++) {
+        const currentProduct = productsarray[i];
         productsContainer.innerHTML += getProductCards(
             currentProduct.image,
             currentProduct.ProductName,
@@ -96,7 +99,30 @@ const populateProducts =() => {
     }
 };
 
-populateProducts();
+populateProducts(products);
+
+
+function filterProducts (){
+    if (brand !== "All") {
+        const filteredProducts = products.filter (product => product.seller === brand && product.price <= maxPrice)
+        populateProducts(filteredProducts);
+    } else {
+        const filteredProducts = products.filter (product => product.price <= maxPrice)
+        populateProducts(filteredProducts);
+    }
+    
+}
+
+function changeMaxPrice (id) {
+    maxPrice = parseInt(document.getElementById(id).value) || 1000
+    filterProducts()
+}
+
+function changeBrandName (brandName) {
+    brand = brandName
+    filterProducts()
+}
+
 
 
 

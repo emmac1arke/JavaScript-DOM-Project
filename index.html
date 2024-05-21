@@ -38,9 +38,26 @@
 <!--Search bar-->
     <section>
         <div class="search-bar">
-            <input type="text">
+        <div class="filters-container">
+            <h3>Filter products by brand</h3>
+            <form action="">
+                <!--needs a name to ensure only one radio button checked at a time-->
+                <input type="radio" class="check" name="brand" id="byTheSea" onclick="changeBrandName('By the Sea')">
+                <label for="byTheSea">By The Sea</label>
+                <input type="radio" class="check" name="brand" id="fridaKahlo" onclick="changeBrandName('Frida Kahlo')">
+                <label for="fridaKahlo">Frida Kahlo</label>
+                <input type="radio" class="check" name="brand" id="Forage" onclick="changeBrandName('Forage')">
+                <label for="Forage">Forage</label>
+                <input type="radio" class="check" name="brand" id="secretGarden" onclick="changeBrandName('Secret Garden')">
+                <label for="secretGarden">Secret Garden</label>
+                <input type="radio" name="brand" id="all" onclick="changeBrandName('All')">Show all brands</label>
+            </form>
+        </div>
+        <div id="max-price-search">
+         <input type="number" id="search" placeholder="Search by max price" onchange="changeMaxPrice('search')">
             <!--needs:
             seller box, max price box, search, clear-->
+        </div>
         </div>
     </section>
 <!--Main products section-->
